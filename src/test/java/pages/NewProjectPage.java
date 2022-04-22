@@ -11,8 +11,8 @@ public class NewProjectPage extends BasePage {
     public SelenideElement projectCode = $("#inputCode");
     public SelenideElement description = $("#inputDescription");
     public SelenideElement createButton = $("[type=submit]");
-    public SelenideElement typeInput = $x("//span[text()='Settings']");
-    public SelenideElement settings = $("#public-access-type");
+    public SelenideElement typeInput = $("#public-access-type");
+    public SelenideElement settings = $x("//span[text()='Settings']");
     public SelenideElement deleteButton = $(".btn-cancel");
     public SelenideElement createNewProjectButton = $("#createButton");
 
@@ -26,6 +26,8 @@ public class NewProjectPage extends BasePage {
         description.sendKeys(Description);
         typeInput.click();
         createButton.click();
+    }
+    public void deleteProject() {
         settings.click();
         deleteButton.click();
         deleteButton.click();
