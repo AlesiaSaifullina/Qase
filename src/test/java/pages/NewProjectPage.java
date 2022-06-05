@@ -1,36 +1,31 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-
+import dto.Project;
+import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 
+@Log4j2
 public class NewProjectPage extends BasePage {
-    public SelenideElement projectName = $("#inputTitle");
-    public SelenideElement projectCode = $("#inputCode");
-    public SelenideElement description = $("#inputDescription");
-    public SelenideElement createButton = $("[type=submit]");
-    public SelenideElement typeInput = $("#public-access-type");
-    public SelenideElement settings = $x("//span[text()='Settings']");
-    public SelenideElement deleteButton = $(".btn-cancel");
-    public SelenideElement createNewProjectButton = $("#createButton");
+
+    public static final SelenideElement PROJECT_NAME = $("#inputTitle");
+    public static final SelenideElement PROJECT_CODE = $("#inputCode");
+    public static final SelenideElement PROJECT_DESCRIPTION = $("#inputDescription");
+    public static final SelenideElement CHECK_BOX_PUBLIC = $("#public-access-type");
+    public static final SelenideElement CREATE_BUTTON = $("[type=submit]");
 
 
-    public NewProjectPage() {
-    }
 
-    public void fillInProjectInfo(String name, String code, String Description) {
-        projectName.sendKeys(name);
-        projectCode.sendKeys(code);
-        description.sendKeys(Description);
-        typeInput.click();
-        createButton.click();
-    }
-    public void deleteProject() {
-        settings.click();
-        deleteButton.click();
-        deleteButton.click();
-        createNewProjectButton.shouldBe(Condition.visible);
+    @Step("Input project information: {project}")
+    public NewProjectPage inputInfo(Project project) {
+        log.info("Input project name: {}, code project: {}, description {}", project.getName(),
+                project.getCode(), project.getDescription());
+        PROJECT_NAME.sendKeys(project.getName());
+        PROJECT_CODE.sendKeys(project.getCode());
+        PROJECT_DESCRIPTION.sendKeys(project.getDescription());
+        CHECK_BOX_PUBLIC.click();
+        CREATE_BUTTON.click();
+        return this;
     }
 }

@@ -1,17 +1,21 @@
 package tests;
+
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import static com.codeborne.selenide.Selenide.open;
+import tests.base.BaseTest;
+import tests.base.TestListener;
+import static org.testng.Assert.assertEquals;
 
-public class LoginTest extends BaseTest{
+@Listeners(TestListener.class)
+public class LoginTest extends BaseTest {
 
-    @Test
-    public void login() {
-        open("login");
-        loginPage.login("saifulina.qa@gmail.com", "iH96sFQBYV@4.Mx");
+    @Test(description = "Authorization")
+    public void logIn() {
+        loginSteps.login(user, password);
+    }
+    @Test(description = "Not registered user")
+    public void errorMessageShouldBeDisplayed() {
+        loginSteps.login("bla_bla@100.bla.com", "blabla");
+        assertEquals(loginPage.getErrorMessage(), "These credentials do not match our records.", "Error message didn't match");
     }
 }
-
-// $("#inputEmail").sendKeys("saifulina.qa@gmail.com");
-// $("#inputPassword").sendKeys("iH96sFQBYV@4.Mx");
-// $("#btnLogin").click();
-// $("#createButton").shouldBe(Condition.visible);

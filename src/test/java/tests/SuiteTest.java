@@ -1,18 +1,25 @@
 package tests;
 
+import dto.Project;
+import dto.ProjectsFactory;
+import dto.Suite;
 import org.testng.annotations.Test;
+import tests.base.BaseTest;
 
-import static com.codeborne.selenide.Selenide.open;
+public class SuiteTest extends BaseTest {
 
-public class SuiteTest extends BaseTest{
-
-    @Test
-    public void newSuite() {
-        open("login");
-        loginPage.login("saifulina.qa@gmail.com", "iH96sFQBYV@4.Mx");
-        projectList.clickNewCreate();
-        newProjectPage.fillInProjectInfo("Sauce Demo", "SD", "Example");
-        projectPage.createNewSuite("test", "test", "test");
-        newProjectPage.deleteProject();
+    @Test(description = "Create new Suite")
+    public void createSuite() {
+        Project project = ProjectsFactory.getProject();
+        loginSteps.login(user, password);
+        projectStep.createProject(project);
+        newProjectPage.inputInfo(project);
+        Suite suite = Suite.builder()
+                .name("Test")
+                .parent("Project root")
+                .description("description")
+                .preconditions("precondition")
+                .build();
+        suiteSteps.createSuite(suite);
     }
 }

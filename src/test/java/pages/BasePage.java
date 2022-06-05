@@ -4,10 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
-public class BasePage {
-
-    public BasePage() {
-    }
+public abstract class BasePage {
 
     public void waitForPageLoaded() {
         new ExpectedCondition<Boolean>() {

@@ -1,22 +1,26 @@
 package tests;
 
+import dto.Case;
 import dto.Project;
 import dto.ProjectsFactory;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
+
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
-public class NewProjectTest extends BaseTest {
+public class CaseTest extends BaseTest {
 
-    @Test(description = "Create new Project")
-    public void createNewProject() {
+    @Test(description = "Create new case")
+    public void createCase() {
         Project project = ProjectsFactory.getProject();
         loginSteps.login(user, password);
         projectStep.createProject(project);
         newProjectPage.inputInfo(project);
-        assertEquals(projectPage.name(), project.getName());
-        projectsList.openPage();
-        assertTrue(projectsList.validate(project.getName()));
+        Case aCase = Case.builder()
+                .title("Test")
+                .milestone("Not set")
+                .build();
+        caseSteps.createCase(aCase);
+        projectPage.deleteCase();
     }
 }
