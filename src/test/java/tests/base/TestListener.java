@@ -33,6 +33,7 @@ public class TestListener implements ITestListener {
         takeScreenshot(iTestResult);
     }
 
+    //TODO iTestResult не нужен
     private void takeScreenshot(ITestResult iTestResult) {
         AllureUtils.takeScreenshot(getWebDriver());
     }

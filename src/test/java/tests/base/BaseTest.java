@@ -16,6 +16,7 @@ import utils.PropertyReader;
 @Listeners(TestListener.class)
 public class BaseTest {
 
+    //TODO в архзитектуре со Steps в тестах Pages вообще не используют обычно. Переносится их инициализация и использование в steps
     protected LoginPage loginPage;
     protected LoginSteps loginSteps;
     protected ProjectsList projectsList;
@@ -32,6 +33,7 @@ public class BaseTest {
     public String password;
 
     @BeforeMethod(description = "Opening browser")
+    //TODO context тут не нужен
     public void setup(ITestContext context) {
         user = System.getProperty("user", PropertyReader.getProperty("user"));
         password = System.getProperty("password", PropertyReader.getProperty("password"));

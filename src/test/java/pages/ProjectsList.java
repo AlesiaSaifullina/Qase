@@ -34,6 +34,7 @@ public class ProjectsList extends BasePage {
 
     @Step("Delete project")
     public void deleteProject() {
+        //TODO не уверен что этот метод тебе нежуен. Лог некорректный в люьом случае. Либо удаляем либо фиксим лог и использование
         log.info("Removal a project with name 'test'");
         open("projects");
         PROJECTS_SORTING.click();

@@ -17,5 +17,6 @@ public class SuiteApiTest extends BaseApiTest {
 
         suiteApiClient.createNewSuite(suite);
         suiteApiClient.getSuiteByCode("APITEST");
+        //TODO нет валидации
     }
 }

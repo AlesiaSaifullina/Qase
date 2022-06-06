@@ -9,6 +9,7 @@ import static org.testng.Assert.assertEquals;
 @Listeners(TestListener.class)
 public class LoginTest extends BaseTest {
 
+    //TODO думаю лишний тест. Логин и так везде происходит. Валидации нет все ранво тут
     @Test(description = "Authorization")
     public void logIn() {
         loginSteps.login(user, password);
