@@ -43,8 +43,11 @@ public class ProjectPage extends BasePage {
         log.info("Delete a suite");
         DELETE_SUITE.click();
     }
+
+    //TODO думаю тут метод должен быть, который удаляет кейс по имени, а не какой-то кейс
     @Step("Delete a case")
     public void deleteCase() {
+        //TODO логирование такого рода без переменных каких-то почти бесполезно. Проще удалить, но не настаиваю
         log.info("Delete a case");
         SELECT_CASE.click();
         DELETE_CASE.click();
@@ -54,18 +57,22 @@ public class ProjectPage extends BasePage {
         CONFIRM_BUTTON.click();
     }
 
+    //TODO именование лучше getProjectname()
     @Step("Getting project name")
     public String name() {
+        //TODO логирование такого рода без переменных каких-то почти бесполезно. Проще удалить, но не настаиваю
         log.info("Get project name");
         return PROJECT_NAME.getText();
     }
     @Step("Getting suit name")
     public String suiteName() {
+        //TODO логирование такого рода без переменных каких-то почти бесполезно. Проще удалить, но не настаиваю
         log.info("Get suite name");
         return SUITE_NAME.getText();
     }
     @Step("Getting case name")
     public String caseName() {
+        //TODO логирование такого рода без переменных каких-то почти бесполезно. Проще удалить, но не настаиваю
         log.info("Get case name");
         return CASE_TITLE.getText();
     }

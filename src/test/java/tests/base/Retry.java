@@ -8,6 +8,7 @@ import org.testng.ITestResult;
 public class Retry implements IRetryAnalyzer {
 
     private int attempt = 1;
+    //TODO думаю 3 достаточно будет
     private static final int MAX_RETRY = 5;
 
     @Override

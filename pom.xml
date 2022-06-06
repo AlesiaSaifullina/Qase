@@ -38,6 +38,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.version}</version>
                 <configuration>
+                    <!-- TODO 1.9.9.1 тоже из проперти взять -->
                     <argLine>
                         -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver.version}/aspectjweaver-1.9.9.1.jar
                         -Xmx256m

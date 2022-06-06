@@ -16,11 +16,13 @@ public class CaseTest extends BaseTest {
         loginSteps.login(user, password);
         projectStep.createProject(project);
         newProjectPage.inputInfo(project);
+        //TODO сделать на большее кол-во полей
         Case aCase = Case.builder()
                 .title("Test")
                 .milestone("Not set")
                 .build();
         caseSteps.createCase(aCase);
+        //TODO нет валидации
         projectPage.deleteCase();
     }
 }

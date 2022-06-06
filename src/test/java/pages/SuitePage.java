@@ -19,6 +19,7 @@ public class SuitePage extends BasePage {
 
     @Step("Input suite information: {suite}")
     public SuitePage create(Suite aSuite) {
+        //TODO можно было просто написать aSuite переменную, норм toString тработал бы
         log.info("Input suite name: {}, select parent suite: {}, description: {}, preconditions: {}",
                 aSuite.getName(), aSuite.getParent(), aSuite.getDescription(), aSuite.getPreconditions());
         SUITE_NAME.sendKeys(aSuite.getName());

@@ -21,5 +21,6 @@ public class SuiteTest extends BaseTest {
                 .preconditions("precondition")
                 .build();
         suiteSteps.createSuite(suite);
+        //TODO нет валидации
     }
 }

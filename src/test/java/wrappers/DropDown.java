@@ -15,6 +15,7 @@ public class DropDown {
         this.label = label;
     }
 
+    //TODO ту тпараметр select в Allure указан. Его нет в методе/классе
     @Step("Select: {option} into: {select}")
     public void select(String option) {
         log.info("Choosing {} in {}", option, label);
