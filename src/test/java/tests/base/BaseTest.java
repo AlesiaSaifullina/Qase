@@ -40,7 +40,7 @@ public class BaseTest {
         Configuration.browser = "chrome";
         Configuration.headless = true;
         Configuration.clickViaJs = true;
-        Configuration.timeout = 30000;
+        Configuration.timeout = 50000;
 
         loginPage = new LoginPage();
         loginSteps = new LoginSteps();
