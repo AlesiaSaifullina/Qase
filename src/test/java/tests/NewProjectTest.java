@@ -15,8 +15,6 @@ public class NewProjectTest extends BaseTest {
         loginSteps.login(user, password);
         projectStep.createProject(project);
         newProjectPage.inputInfo(project);
-        assertEquals(projectPage.name(), project.getName());
-        projectsList.openPage();
-        assertTrue(projectsList.validate(project.getName()));
+        assertEquals( project.getName(), projectPage.getProjectName(), "Project name doesn't match");
     }
 }

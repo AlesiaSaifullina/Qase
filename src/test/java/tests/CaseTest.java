@@ -4,9 +4,12 @@ import dto.Case;
 import dto.Project;
 import dto.ProjectsFactory;
 import org.testng.annotations.Test;
+import pages.CasePage;
+import pages.ProjectPage;
 import tests.base.BaseTest;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class CaseTest extends BaseTest {
 
@@ -21,6 +24,7 @@ public class CaseTest extends BaseTest {
                 .milestone("Not set")
                 .build();
         caseSteps.createCase(aCase);
+        assertEquals(projectPage.getCaseName(),aCase.getTitle());
         projectPage.deleteCase();
     }
 }

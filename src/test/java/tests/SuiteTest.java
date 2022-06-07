@@ -6,6 +6,8 @@ import dto.Suite;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
+import static org.testng.Assert.assertEquals;
+
 public class SuiteTest extends BaseTest {
 
     @Test(description = "Create new Suite")
@@ -21,5 +23,6 @@ public class SuiteTest extends BaseTest {
                 .preconditions("precondition")
                 .build();
         suiteSteps.createSuite(suite);
+        assertEquals(projectPage.getSuiteName(),suite.getName());
     }
 }
